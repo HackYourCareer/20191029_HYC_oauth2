@@ -1,0 +1,39 @@
+version: '3.1'
+
+services:
+
+  mongodb:
+    image: mongo
+    container_name: "mongodb"
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  auth-server:
+    container_name: "auth-server"
+    build:
+      context: ./oauth-server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - mongodb
+
+  resource-server:
+    build:
+      context: ./resource-server
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    links:
+      - auth-server
+
+  webapp:
+    build:
+      context: ./oauth-demo-web-app
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
