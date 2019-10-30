@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-8">
+    <code *ngFor="let message of messages" class="d-flex">
+      {{message}}
+    </code>
+  </div>
+  <div class="col-4">
+    <button class="btn btn-danger btn-block" (click)="clearLogs()">Clear logs</button>
+  </div>
+</div>

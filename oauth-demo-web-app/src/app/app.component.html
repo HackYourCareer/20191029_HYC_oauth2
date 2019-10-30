@@ -1,0 +1,25 @@
+<div class="container-fluid header">
+  <div class="row justify-content-center">
+    <img src="assets/logo.jpg">
+  </div>
+  <div class="row justify-content-center">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/authorization-code" routerLinkActive="active">Authorization code</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/implicit" routerLinkActive="active">Implicit</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/client-credentials" routerLinkActive="active">Client credentials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/password" routerLinkActive="active">Password</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+  <app-logger></app-logger>
+</div>
